@@ -1,11 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import {MDCRipple} from '@material/ripple';
 
 class Sidebar extends React.Component {
+  componentDidMount() {
+    MDCRipple.attachTo(document.querySelector('.mdc-button'));
+  }
+
   render() {
     return (
-      <div>Sidebar</div>
+      <div>Sidebar
+         <button class="mdc-button">
+   <div class="mdc-button__ripple"></div>
+   <span class="mdc-button__label">Text Button</span>
+</button>
+      </div>
     );
   }
 }
