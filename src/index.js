@@ -11,9 +11,9 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div>Sidebar
-         <button class="mdc-button">
-   <div class="mdc-button__ripple"></div>
-   <span class="mdc-button__label">Text Button</span>
+         <button className="mdc-button">
+   <div className="mdc-button__ripple"></div>
+   <span className="mdc-button__label">Text Button</span>
 </button>
       </div>
     );
@@ -48,7 +48,26 @@ class Item extends React.Component {
 
 function Checkbox(props) {
   return (
-    <input type="checkbox" onChange={() => props.onChange()} checked={props.done} />
+    <div className="mdc-form-field">
+      <div className="mdc-checkbox">
+        <input type="checkbox"
+              className="mdc-checkbox__native-control"
+              id="checkbox-1"
+              onChange={() => props.onChange()} checked={props.done}/>
+        <div className="mdc-checkbox__background">
+          <svg className="mdc-checkbox__checkmark"
+              viewBox="0 0 24 24">
+            <path className="mdc-checkbox__checkmark-path"
+                  fill="none"
+                  d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+          </svg>
+          <div className="mdc-checkbox__mixedmark"></div>
+        </div>
+        <div className="mdc-checkbox__ripple"></div>
+      </div>
+      {/* <label for="checkbox-1">Checkbox 1</label> */}
+    </div>
+    // <input type="checkbox" onChange={() => props.onChange()} checked={props.done} />
   );
 }
 

@@ -526,7 +526,7 @@ module.exports = function (webpackEnv) {
                     : isEnvDevelopment,
                   // webpackImporter: false,
                   // sassOptions: {
-                  //   includePaths: ['./node_modules']
+                  //   includePaths: ['node_modules']
                   // },
                   // implementation: require('sass'),
                 },

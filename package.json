@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
-    "@material/button": "^8.0.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.2",
     "@svgr/webpack": "5.4.0",
     "@testing-library/jest-dom": "^5.11.6",
@@ -41,7 +40,6 @@
     "jest-circus": "26.6.0",
     "jest-resolve": "26.6.0",
     "jest-watch-typeahead": "0.6.1",
-    "material-components-web": "^8.0.0",
     "mini-css-extract-plugin": "0.11.3",
     "optimize-css-assets-webpack-plugin": "5.0.4",
     "pnp-webpack-plugin": "1.6.4",
