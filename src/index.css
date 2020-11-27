@@ -1,0 +1,110 @@
+@import "reset.css";
+
+body {
+    display: flex;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+#root {
+    width: 100%;
+}
+
+.mdc-drawer-app-content {
+    flex: auto;
+    overflow: auto;
+    position: relative;
+}
+
+.main-content {
+    overflow: auto;
+    height: 100%;
+}
+
+.app-bar {
+    position: absolute;
+}
+
+.mdc-top-app-bar {
+    z-index: 7;
+}
+
+.mdc-chip-set {
+    display: inline-block;
+}
+
+.mdc-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled):not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mdc-text-field__input {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled):not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mdc-text-field__input:focus {
+    border-bottom-color: rgba(0, 0, 0, 0.42);
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled):not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mdc-text-field__input:hover {
+    border-bottom-color: rgba(0, 0, 0, 0.87);
+}
+
+.todo-label {
+    white-space: pre-wrap;
+}
+
+.todo-input {
+    width: 100%;
+    --mdc-ripple-fg-size:720px;
+    --mdc-ripple-fg-scale:1.68237;
+    --mdc-ripple-fg-translate-start:-290.5px, -316px;
+    --mdc-ripple-fg-translate-end:240px, -332px;
+}
+
+li.todo-done .todo-input {
+    text-decoration: line-through;
+}
+
+.mdc-list-item__meta {
+    display: flex;
+}
+
+li .mdc-chip-set {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.hidden {
+    display: none !important;
+}
+
+li.overdue .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+    border-color: #f64444;
+}
+
+li.overdue .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
+    background-color:  #f64444;
+    border-color: #f64444;
+}
+
+input.todo-date {
+    min-width: 115px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    padding: 2px 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: #333;
+    font-style: italic;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+input.todo-date:hover {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
