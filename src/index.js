@@ -4,6 +4,13 @@ import './index.css';
 import {MDCTopAppBar} from '@material/top-app-bar';
 import {MDCDrawer} from '@material/drawer';
 
+import MomentUtils from '@date-io/moment';
+
+import {
+  KeyboardDatePicker,
+  MuiPickersUtilsProvider,
+} from '@material-ui/pickers';
+
 function AppBar(props) {
   return (
     <header className="mdc-top-app-bar app-bar" id="app-bar">
@@ -126,7 +133,7 @@ class TodoList extends React.Component {
   }
 
   renderItem(id, state) {
-    return <Item key={id} removeHandler={this.removeHandler} changeHandler={this.changeHandler} state={state} />;
+    return <Item key={id} removeHandler={this.removeHandler} changeHandler={this.changeHandler} dateChangeHandler={this.dateChangeHandler} state={state} />;
   }
 
   render() {
@@ -137,12 +144,14 @@ class TodoList extends React.Component {
     });
 
     return (
-      <div>
-        <ul id="todo-list" className="mdc-list" role="group" aria-label="">
-          {itemsRender}
-        </ul>
-        <AddItemButton onClick={this.addItem}/>
-      </div>
+      <MuiPickersUtilsProvider utils={MomentUtils}>
+        <div>
+          <ul id="todo-list" className="mdc-list" role="group" aria-label="">
+            {itemsRender}
+          </ul>
+          <AddItemButton onClick={this.addItem}/>
+        </div>
+      </MuiPickersUtilsProvider>
     );
   }
 }
@@ -161,6 +170,7 @@ class Item extends React.Component {
 
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleTextInputChange = this.handleTextInputChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
     this.removeIfEmpty = this.removeIfEmpty.bind(this);
   }
 
@@ -180,6 +190,16 @@ class Item extends React.Component {
     const currentState = this.props.state;
     currentState.text = e.target.value;
     this.props.changeHandler(currentState);
+  }
+
+  handleDateChange(e, date) {
+    const currentState = this.props.state;
+    currentState.date = date;
+    this.props.changeHandler(currentState);
+
+    console.log(this.props.state.date);
+
+    console.log(date);
   }
 
   removeItem(id) {
@@ -219,7 +239,9 @@ class Item extends React.Component {
         {this.renderCheckbox()}
         {this.renderTextInput()}
         <div className="mdc-chip-set mdc-chip-set--input" role="grid"></div>
-        <input type="date" placeholder="YYYY-MM-dd" className="todo-date" name="todo-date" />
+        {/* <input type="date" placeholder="YYYY-MM-dd" className="todo-date" name="todo-date" /> */}
+        <KeyboardDatePicker disableToolbar
+        variant="inline" value={this.props.state.date} onChange={this.handleDateChange} format="yyyy/MM/DD" />
         <span className="mdc-list-item__meta">
           <button className="mdc-icon-button material-icons todo-delete">delete</button>
         </span>
