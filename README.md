@@ -10,6 +10,16 @@ Work in progress
 
 Work in progress
 
-## Usage
+## Setup
 
-Work in progress
+#### Install packages
+
+```
+$ npm install
+```
+
+#### Run app
+
+```
+$ npm start
+```
